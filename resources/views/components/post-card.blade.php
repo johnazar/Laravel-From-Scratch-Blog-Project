@@ -4,7 +4,7 @@
     {{ $attributes->merge(['class' => 'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }}>
     <div class="py-6 px-5 h-full flex flex-col">
         <div>
-            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="Blog Post illustration" class="rounded-xl">
+            <img src="{{ asset($post->thumbnail) }}" alt="Blog Post illustration" class="rounded-xl">
         </div>
 
         <div class="mt-6 flex flex-col justify-between flex-1">
@@ -32,7 +32,7 @@
 
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
-                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                    <img src="{{asset('/images/lary-avatar.svg')}}" alt="Lary avatar">
                     <div class="ml-3">
                         <h5 class="font-bold">
                             <a href="/?author={{ $post->author->username }}">{{ $post->author->name }}</a>
