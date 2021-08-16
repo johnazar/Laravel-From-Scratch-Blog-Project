@@ -69,12 +69,12 @@
                         </form>
                     </x-dropdown>
                 @else
-                    <a href="/register"
+                    <a href="{{route('register')}}"
                        class="text-xs font-bold uppercase {{ request()->is('register') ? 'text-blue-500' : '' }}">
                         Register
                     </a>
 
-                    <a href="/login"
+                    <a href="{{route('login')}}"
                        class="ml-6 text-xs font-bold uppercase {{ request()->is('login') ? 'text-blue-500' : '' }}">
                         Log In
                     </a>
@@ -100,7 +100,7 @@
             <div class="mt-10">
                 <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
 
-                    <form method="POST" action="/newsletter" class="lg:flex text-sm">
+                    <form method="POST" action="{{route('newsletter')}}" class="lg:flex text-sm">
                         @csrf
 
                         <div class="lg:py-3 lg:px-5 flex items-center">
