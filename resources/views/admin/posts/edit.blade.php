@@ -1,6 +1,6 @@
 <x-layout>
     <x-setting :heading="'Edit Post: ' . $post->title">
-        <form method="POST" action="{{route('admin.posts.edit',$post->id)}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('admin.posts.update',$post->id)}}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 
@@ -27,6 +27,20 @@
                             value="{{ $category->id }}"
                             {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}
                         >{{ ucwords($category->name) }}</option>
+                    @endforeach
+                </select>
+
+                <x-form.error name="category"/>
+            </x-form.field>
+            <x-form.field>
+                <x-form.label name="author"/>
+
+                <select name="user_id" id="user_id" required>
+                    @foreach (\App\Models\User::all() as $user)
+                        <option
+                            value="{{ $user->id }}"
+                            {{ old('user_id', $post->user_id) == $user->id ? 'selected' : '' }}
+                        >{{ ucwords($user->name) }}</option>
                     @endforeach
                 </select>
 

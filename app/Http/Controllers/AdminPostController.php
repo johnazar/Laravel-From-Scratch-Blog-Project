@@ -57,6 +57,7 @@ class AdminPostController extends Controller
     protected function validatePost(?Post $post = null): array
     {
         $post ??= new Post();
+        // dd($post->exists);
 
         return request()->validate([
             'title' => 'required',
@@ -64,7 +65,8 @@ class AdminPostController extends Controller
             'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post)],
             'excerpt' => 'required',
             'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
+            'category_id' => ['required', Rule::exists('categories', 'id')],
+            'user_id'=> $post->exists ? ['exists:users,id'] : request()->user()->id,
         ]);
     }
 }
