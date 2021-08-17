@@ -46,5 +46,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('admin', function () {
             return request()->user()?->can('admin');
         });
+
+        Blade::if('followed',function($value){
+            return auth()->user()->follow()->pluck('id')->contains($value);
+        });
     }
 }

@@ -10,7 +10,7 @@ use App\Http\Controllers\RssFeedController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('', [PostController::class, 'index'])->name('home');
+Route::get('/posts', [PostController::class, 'index'])->name('home');
 Route::get('feed', [RssFeedController::class, 'feed']);
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
