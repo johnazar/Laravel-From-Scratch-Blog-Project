@@ -32,6 +32,22 @@ class Post extends Model
             )
         );
     }
+    public function getStatusAttribute($attribute)
+    {
+        return $this->statusOptions()[$attribute];
+    }
+    public function statusOptions()
+    {
+        return [
+            1 => 'Published',
+            0 => 'Draft',
+            2 => 'Edited'
+        ];
+    }
+    public function scopePublished($query)
+    {
+        return $query->where('status',1);
+    }
 
     public function comments()
     {
