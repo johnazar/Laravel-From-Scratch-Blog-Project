@@ -8,6 +8,9 @@
                     Published
                     <time>{{ $post->created_at->diffForHumans() }}</time>
                 </p>
+                <p class="mt-2 block text-gray-400 text-xs">
+                    Viewed {{$post->view_count}} times
+                </p>
 
                 <div class="flex items-center lg:justify-center text-sm mt-4">
                     <img src="{{asset('/images/lary-avatar.svg')}}" alt="Lary avatar">
