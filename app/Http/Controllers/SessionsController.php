@@ -19,9 +19,6 @@ class SessionsController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-        $attributes['password'] = bcrypt($attributes['password']);
-        dd(Auth::attempt($attributes));
-        // dd(bcrypt($attributes['password']));
 
         if (! Auth::attempt($attributes)) {
             throw ValidationException::withMessages([
@@ -38,6 +35,6 @@ class SessionsController extends Controller
     {
         auth()->logout();
 
-        return redirect('/')->with('success', 'Goodbye!');
+        return redirect()->route('home')->with('success', 'Goodbye!');
     }
 }

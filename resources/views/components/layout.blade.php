@@ -64,7 +64,7 @@
                             Log Out
                         </x-dropdown-item>
 
-                        <form id="logout-form" method="POST" action="/logout" class="hidden">
+                        <form id="logout-form" method="POST" action="{{route('logout')}}" class="hidden">
                             @csrf
                         </form>
                     </x-dropdown>

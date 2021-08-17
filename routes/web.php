@@ -22,7 +22,7 @@ Route::post('register', [RegisterController::class, 'store'])->middleware('guest
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest')->name('loginpost');
 
-Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
 // Admin Section
 Route::middleware('can:admin')->group(function () {
