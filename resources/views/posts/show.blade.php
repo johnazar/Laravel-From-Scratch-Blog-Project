@@ -17,6 +17,19 @@
                     <div class="ml-3 text-left">
                         <h5 class="font-bold">
                             <a href="/?author={{ $post->author->username }}">{{ $post->author->name }}</a>
+                            @auth
+                            <form action="{{route('follow')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="author_id" value="{{$post->author->id}}">
+                                <button type="submit" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Follow</button>
+                            </form>
+                            <form action="{{route('unfollow')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="author_id" value="{{$post->author->id}}">
+                                <button type="submit" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Unfollow</button>
+                            </form>
+                                
+                            @endauth
                         </h5>
                     </div>
                 </div>
