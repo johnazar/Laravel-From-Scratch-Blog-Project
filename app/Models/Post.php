@@ -11,6 +11,12 @@ class Post extends Model
 
     protected $with = ['category', 'author'];
 
+    // default value
+    protected $attributes = [
+        'status' => 1
+    ];
+
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? false, fn($query, $search) =>
