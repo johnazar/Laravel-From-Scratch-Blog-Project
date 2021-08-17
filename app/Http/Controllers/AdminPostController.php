@@ -21,12 +21,13 @@ class AdminPostController extends Controller
 
     public function store()
     {
-        Post::create(array_merge($this->validatePost(), [
-            'user_id' => request()->user()->id,
-            'thumbnail' => request()->file('thumbnail')->store('thumbnails')
+        $post = Post::create(array_merge($this->validatePost(), [
+            // 'user_id' => request()->user()->id,
+            'thumbnail' => request()->file('thumbnail')->store('images',['disk'=>'public'])
         ]));
+        // dd(request()->user()->id);
 
-        return redirect('/');
+        return redirect()->route('admin.posts.index')->with('Post created!');
     }
 
     public function edit(Post $post)
@@ -66,7 +67,8 @@ class AdminPostController extends Controller
             'excerpt' => 'required',
             'body' => 'required',
             'category_id' => ['required', Rule::exists('categories', 'id')],
-            'user_id'=> $post->exists ? ['exists:users,id'] : request()->user()->id,
+            // 'user_id'=> $post->exists ? ['exists:users,id'] : request()->user()->id,
+            'user_id'=>  ['required', Rule::exists('users', 'id')],
         ]);
     }
 }
