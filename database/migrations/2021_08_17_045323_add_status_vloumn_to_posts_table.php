@@ -14,7 +14,7 @@ class AddStatusVloumnToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('status')->after('body')->default(0);
+            $table->integer('status')->after('body')->default(1);
         });
     }
 
