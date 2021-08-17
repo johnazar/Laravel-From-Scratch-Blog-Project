@@ -26,7 +26,7 @@
     <section class="px-6 py-8">
         <nav class="md:flex md:justify-between md:items-center">
             <div>
-                <a href="/">
+                <a href="{{route('home')}}">
                     <img src="{{asset('/images/logo.svg')}}" alt="Laracasts Logo" width="165" height="16">
                 </a>
             </div>
@@ -42,15 +42,15 @@
 
                         @admin
                             <x-dropdown-item
-                                href="/admin/posts"
-                                :active="request()->is('admin/posts')"
+                                href="{{route('admin.posts.index')}}"
+                                :active="request()->routeIs('admin.posts.index')"
                             >
                                 Dashboard
                             </x-dropdown-item>
 
                             <x-dropdown-item
-                                href="/admin/posts/create"
-                                :active="request()->is('admin/posts/create')"
+                                href="{{route('admin.posts.create')}}"
+                                :active="request()->routeIs('admin.posts.create')"
                             >
                                 New Post
                             </x-dropdown-item>

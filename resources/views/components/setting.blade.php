@@ -11,11 +11,11 @@
 
             <ul>
                 <li>
-                    <a href="/admin/posts" class="{{ request()->is('admin/posts') ? 'text-blue-500' : '' }}">All Posts</a>
+                    <a href="{{route('admin.posts.index')}}" class="{{ request()->routeIs('admin.posts.index') ? 'text-blue-500' : '' }}">All Posts</a>
                 </li>
 
                 <li>
-                    <a href="/admin/posts/create" class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }}">New Post</a>
+                    <a href="{{route('admin.posts.create')}}" class="{{ request()->routeIs('admin.posts.create') ? 'text-blue-500' : '' }}">New Post</a>
                 </li>
             </ul>
         </aside>
