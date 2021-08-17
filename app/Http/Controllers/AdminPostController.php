@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Events\PostPublishedEvent;
 use Illuminate\Validation\Rule;
 
 class AdminPostController extends Controller
@@ -25,7 +26,7 @@ class AdminPostController extends Controller
             // 'user_id' => request()->user()->id,
             'thumbnail' => request()->file('thumbnail')->store('images',['disk'=>'public'])
         ]));
-        // dd(request()->user()->id);
+        PostPublishedEvent::dispatch($post);
 
         return redirect()->route('admin.posts.index')->with('Post created!');
     }
@@ -58,7 +59,6 @@ class AdminPostController extends Controller
     protected function validatePost(?Post $post = null): array
     {
         $post ??= new Post();
-        // dd($post->exists);
 
         return request()->validate([
             'title' => 'required',
