@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Events\PostPublishedEvent;
 use Illuminate\Validation\Rule;
 
 class PostController extends Controller
@@ -20,6 +21,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        PostPublishedEvent::dispatch($post);
         $post->view_count++;
         $post->save();
         return view('posts.show', [
