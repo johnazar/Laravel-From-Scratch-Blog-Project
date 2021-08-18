@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\RssFeedController;
@@ -30,6 +31,10 @@ Route::get('/login', [SessionsController::class, 'create'])->middleware('guest')
 Route::post('/login', [SessionsController::class, 'store'])->middleware('guest')->name('loginpost');
 
 Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
+Route::as('profile.')->middleware('auth')->group(function () {
+    Route::get('/profile/avatar',[ProfileController::class,'avatar'])->name('avatar');
+    Route::get('/profile/bookmarks',[ProfileController::class,'bookmarks'])->name('bookmarks');
+});
 
 // Admin Section
 Route::as('admin.')->middleware('can:admin')->group(function () {

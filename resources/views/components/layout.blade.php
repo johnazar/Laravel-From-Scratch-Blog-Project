@@ -40,6 +40,12 @@
                             </button>
                         </x-slot>
 
+                        <x-dropdown-item
+                            href="{{route('profile.bookmarks')}}"
+                            :active="request()->routeIs('profile.show')"
+                        >
+                            My Profile
+                        </x-dropdown-item>
                         @admin
                             <x-dropdown-item
                                 href="{{route('admin.posts.index')}}"
