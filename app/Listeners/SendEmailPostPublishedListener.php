@@ -30,7 +30,11 @@ class SendEmailPostPublishedListener
     public function handle(PostPublishedEvent $event)
     {
         $followers = $event->post->author->followers()->pluck('name');
-        Mail::to('send_to_email@gmail.com')->send(new PostPublishedMail($event->post));
+        $followersemails = $event->post->author->followers()->pluck('email');
+        $followersemails->map(function ($email) use($event) {
+            return Mail::to($email)->send(new PostPublishedMail($event->post));
+        });
         Log::info('Post published '.$event->post->title .'Send by email to: '.$followers);
+
     }
 }
