@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\RssFeedController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +34,6 @@ Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth
 // Admin Section
 Route::as('admin.')->middleware('can:admin')->group(function () {
     Route::resource('admin/posts', AdminPostController::class)->except('show');
+    Route::post('clearcache',[SettingController::class, 'clearcache'])->name('clearcache');
+    Route::post('seeddb',[SettingController::class, 'seeddb'])->name('seeddb');
 });

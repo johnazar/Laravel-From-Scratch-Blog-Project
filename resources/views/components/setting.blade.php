@@ -17,6 +17,18 @@
                 <li>
                     <a href="{{route('admin.posts.create')}}" class="{{ request()->routeIs('admin.posts.create') ? 'text-blue-500' : '' }}">New Post</a>
                 </li>
+                <li>
+                    <form action="{{route('admin.clearcache')}}" method="post">
+                        @csrf
+                        <button>Clear Cache</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="{{route('admin.seeddb')}}" method="post">
+                        @csrf
+                        <button>Seed DB</button>
+                    </form>
+                </li>
             </ul>
         </aside>
 
