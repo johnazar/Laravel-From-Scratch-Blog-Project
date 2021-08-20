@@ -38,9 +38,26 @@
                             <a href="/?author={{ $post->author->username }}">{{ $post->author->name }}</a>
                         </h5>
                     </div>
+
                 </div>
 
-                <div>
+                <div class="flex flex-row">
+                    @auth
+                    @bookmarked($post->id)
+                        <form action="{{route('unbookmark')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{$post->id}}">
+                            <button type="submit" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Bookmarked</button>
+                        </form>
+                    @else
+                        <form action="{{route('bookmark')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{$post->id}}">
+                            <button type="submit" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Bookmark</button>
+                        </form>
+                    @endbookmarked
+                    @endauth
+
                     <a href="{{ $post->path() }}"
                        class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
                     >Read More</a>

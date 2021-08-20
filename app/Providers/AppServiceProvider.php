@@ -50,5 +50,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('followed',function($value){
             return auth()->user()->follow()->pluck('id')->contains($value);
         });
+        Blade::if('bookmarked',function($value){
+            return auth()->user()->bookmarks()->pluck('id')->contains($value);
+        });
     }
 }

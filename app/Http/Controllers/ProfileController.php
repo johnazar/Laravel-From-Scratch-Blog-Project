@@ -9,7 +9,9 @@ class ProfileController extends Controller
     public function bookmarks(){
         // get user
         // get bookmarks
-        return view('profile.bookmarks');
+        $bookmarks = auth()->user()->bookmarks;
+
+        return view('profile.bookmarks',compact('bookmarks'));
     }
     public function avatar(){
         // get user

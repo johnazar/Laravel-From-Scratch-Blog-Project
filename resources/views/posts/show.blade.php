@@ -22,7 +22,7 @@
                                 <form action="{{route('unfollow')}}" method="post">
                                     @csrf
                                     <input type="hidden" name="author_id" value="{{$post->author->id}}">
-                                    <button type="submit" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Unfollow</button>
+                                    <button type="submit" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Followed</button>
                                 </form>
                             @else
                                 <form action="{{route('follow')}}" method="post">
@@ -31,10 +31,6 @@
                                     <button type="submit" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Follow</button>
                                 </form>
                             @endfollowed
-
-
-
-                                
                             @endauth
                         </h5>
                     </div>

@@ -49,5 +49,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class,'user_author','user_id','author_id');
     }
+    public function bookmarks()
+    {
+        return $this->belongsToMany(Post::class,'user_post','user_id','post_id');
+    }
 
 }

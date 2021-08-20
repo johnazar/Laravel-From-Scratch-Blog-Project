@@ -73,4 +73,8 @@ class Post extends Model
     {
         return route('posts.show', $this->slug);
     }
+    public function bookmarked()
+    {
+        return $this->belongsToMany(User::class,'user_post','user_id','post_id');
+    }
 }

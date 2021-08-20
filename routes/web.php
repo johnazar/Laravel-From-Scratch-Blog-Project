@@ -12,7 +12,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/posts', [PostController::class, 'index'])->name('home');
+Route::get('', [PostController::class, 'index'])->name('home');
 Route::get('feed', [RssFeedController::class, 'feed']);
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
@@ -22,6 +22,9 @@ Route::post('/newsletter', NewsletterController::class)->name('newsletter');
 
 Route::post('/follow', [UserController::class,'follow'])->name('follow');
 Route::post('/unfollow', [UserController::class,'unfollow'])->name('unfollow');
+
+Route::post('/bookmark', [UserController::class,'bookmark'])->name('bookmark');
+Route::post('/unbookmark', [UserController::class,'unbookmark'])->name('unbookmark');
 
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');

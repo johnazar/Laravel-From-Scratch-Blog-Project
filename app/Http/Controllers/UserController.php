@@ -28,5 +28,22 @@ class UserController extends Controller
         
         return back();
     }
+
+    public function bookmark()
+    {
+        $val = request()->validate([
+            'post_id'=>  ['required', Rule::exists('posts', 'id')],
+        ]);
+        auth()->user()->bookmarks()->attach($val['post_id']);
+        return back();
+    }
+    public function unbookmark()
+    {
+        $val = request()->validate([
+            'post_id'=>  ['required', Rule::exists('posts', 'id')],
+        ]);
+        auth()->user()->bookmarks()->detach($val['post_id']);
+        return back();
+    }
     
 }
