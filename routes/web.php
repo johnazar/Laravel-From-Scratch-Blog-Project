@@ -27,6 +27,7 @@ Route::post('/bookmark', [UserController::class,'bookmark'])->name('bookmark');
 Route::post('/unbookmark', [UserController::class,'unbookmark'])->name('unbookmark');
 
 Route::post('/avatarset', [UserController::class,'avatarset'])->name('avatarset');
+Route::delete('/avatarremove', [UserController::class,'avatarremove'])->name('avatarremove');
 
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');

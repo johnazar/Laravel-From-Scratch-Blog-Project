@@ -21,6 +21,16 @@ class UserController extends Controller
         return back();
 
     }
+    public function avatarremove() 
+    {
+        $val = request()->validate([
+            'user_id'=> ['required', Rule::exists('users', 'id')],
+        ]);
+        Storage::delete(auth()->user()->avatar);
+        auth()->user()->update(['avatar'=>null]);
+        return back();
+
+    }
     public function follow()
     {
         $val = request()->validate([

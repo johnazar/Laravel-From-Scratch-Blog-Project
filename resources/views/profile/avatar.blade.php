@@ -25,9 +25,10 @@
                                            <input type="file" name="avatar">
                                            <button type="submit" class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">Upload</button>
                                        </form>
-                                       <form action="" method="post">
+                                       <form action="{{route('avatarremove')}}" method="post">
                                            @csrf
                                            @method('DELETE')
+                                           <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                                            <button type="submit" class="transition-colors duration-300 text-xs text-white font-semibold bg-red-500 hover:bg-red-700 rounded-full py-2 px-8">Delete</button>
                                        </form>
                                        
