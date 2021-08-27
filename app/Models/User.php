@@ -40,7 +40,7 @@ class User extends Authenticatable
     public function getUserAvatarAttribute() 
     {
         // dd($this->avatar);
-        return File::exists($this->avatar) ? asset($this->avatar): asset('/images/lary-avatar.svg');
+        return File::exists('storage/'.$this->avatar) ? asset('storage/'.$this->avatar): asset('/images/lary-avatar.svg');
     }
 
     public function posts()

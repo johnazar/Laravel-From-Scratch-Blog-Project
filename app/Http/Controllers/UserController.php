@@ -15,7 +15,8 @@ class UserController extends Controller
             'avatar'=>   'required|mimes:jpg,bmp,png|max:10120',
         ]);
         // dd($val);
-        $path= Storage::disk('public')->putFile('avatars',request()->file('avatar'));
+        $path= request()->file('avatar')->store('avatars');
+        // dd($path);
         Storage::delete(auth()->user()->avatar);
         auth()->user()->update(['avatar'=>$path]);
         return back();
