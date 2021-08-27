@@ -29,6 +29,24 @@
                         <button>Seed DB</button>
                     </form>
                 </li>
+                <li>
+                    <form action="{{route('admin.queuework')}}" method="post">
+                        @csrf
+                        <button>Queue Work</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="{{route('admin.queuelisten')}}" method="post">
+                        @csrf
+                        <button>Queue listen</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="{{route('admin.queuestop')}}" method="post">
+                        @csrf
+                        <button>Queue Stop</button>
+                    </form>
+                </li>
             </ul>
         </aside>
 

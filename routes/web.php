@@ -43,8 +43,12 @@ Route::as('profile.')->middleware('auth')->group(function () {
 });
 
 // Admin Section
+Route::get('clearcache',[SettingController::class, 'clearcache'])->name('clearcache');
 Route::as('admin.')->middleware('can:admin')->group(function () {
     Route::resource('admin/posts', AdminPostController::class)->except('show');
     Route::post('clearcache',[SettingController::class, 'clearcache'])->name('clearcache');
     Route::post('seeddb',[SettingController::class, 'seeddb'])->name('seeddb');
+    Route::post('queuework',[SettingController::class, 'queuework'])->name('queuework');
+    Route::post('queuelisten',[SettingController::class, 'queuelisten'])->name('queuelisten');
+    Route::post('queuestop',[SettingController::class, 'queuestop'])->name('queuestop');
 });
