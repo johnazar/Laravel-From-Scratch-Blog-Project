@@ -1,6 +1,7 @@
 # Laravel From Scratch Blog Demo Project
 
-http://laravelfromscratch.com
+get familiar with laravel here http://laravelfromscratch.com
+
 
 ## Installation
 
@@ -25,10 +26,7 @@ And run the initial migrations and seeders.
 php artisan migrate --seed
 ```
 
-## Further Ideas
-
-Of course we only had time in the Laravel From Scratch series to review the essentials of a blogging platform. You can certainly take this many 
-steps further. Here are some quick ideas that you might play with.
+## Further Ideas solved
 
 - [x] Add a `status` column to the posts table to allow for posts that are still in a "draft" state. Only when this status is changed to "published" should they show up in the blog feed. 
 - [x] Update the "Edit Post" page in the admin section to allow for changing the author of a post.
@@ -38,3 +36,4 @@ steps further. Here are some quick ideas that you might play with.
 - [x] Allow registered users to "bookmark" certain posts that they enjoyed. Then display their bookmarks in a corresponding settings page.
 - [x] Add an account page to update your username and upload an avatar for your profile.
 - [x] Seeder & Clear cache added to settings page
+- [x] Start & Stop Queues at admin panel
