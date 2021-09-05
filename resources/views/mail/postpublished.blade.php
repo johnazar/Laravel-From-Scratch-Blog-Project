@@ -6,7 +6,7 @@ The body of your message.
 <h3>{{ $post['body'] }}</h3>
 
 @component('mail::button', ['url' => $post->path()])
-Button Text
+Read more
 @endcomponent
 
 Thanks,<br>
