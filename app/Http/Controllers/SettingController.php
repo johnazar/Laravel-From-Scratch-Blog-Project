@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 
 class SettingController extends Controller
 {
@@ -21,6 +22,7 @@ public function clearcache(){
 public function queuework(){
     try {
         Artisan::call('queue:work');
+        Log::info("Queue is working");
     } catch(Exception $e) {
         print_r($e);
     }
@@ -30,6 +32,7 @@ public function queuework(){
 public function queuelisten(){
     try {
         Artisan::call('queue:listen');
+        Log::info("Queue is listening");
     } catch(Exception $e) {
             print_r($e);
     }
@@ -39,6 +42,7 @@ public function queuelisten(){
 public function queuestop(){
     try {
         Artisan::call('queue:work --stop-when-empty');
+        Log::info("Queue will stop when empty");
     } catch(Exception $e) {
             print_r($e);
     }
