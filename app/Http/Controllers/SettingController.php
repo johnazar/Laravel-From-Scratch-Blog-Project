@@ -49,6 +49,26 @@ public function queuestop(){
     return redirect()->back();
     
 }
+public function schedulerun(){
+    try {
+        Artisan::call('schedule:run');
+        Log::info("Run the scheduled commands");
+    } catch(Exception $e) {
+            print_r($e);
+    }
+    return redirect()->back();
+    
+}
+public function schedulework(){
+    try {
+        Artisan::call('schedule:work');
+        Log::info("Start the schedule worker");
+    } catch(Exception $e) {
+            print_r($e);
+    }
+    return redirect()->back();
+    
+}
 public function seeddb(){
 
     try {

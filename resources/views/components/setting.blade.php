@@ -47,6 +47,18 @@
                         <button>Queue Stop</button>
                     </form>
                 </li>
+                <li>
+                    <form action="{{route('admin.schedulerun')}}" method="post">
+                        @csrf
+                        <button>Schedule run</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="{{route('admin.schedulework')}}" method="post">
+                        @csrf
+                        <button>Schedule work</button>
+                    </form>
+                </li>
             </ul>
         </aside>
 

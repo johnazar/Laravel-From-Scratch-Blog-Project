@@ -51,4 +51,6 @@ Route::as('admin.')->middleware('can:admin')->group(function () {
     Route::post('queuework',[SettingController::class, 'queuework'])->name('queuework');
     Route::post('queuelisten',[SettingController::class, 'queuelisten'])->name('queuelisten');
     Route::post('queuestop',[SettingController::class, 'queuestop'])->name('queuestop');
+    Route::post('schedulerun',[SettingController::class, 'schedulerun'])->name('schedulerun');
+    Route::post('schedulework',[SettingController::class, 'schedulework'])->name('schedulework');
 });
