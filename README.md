@@ -1,4 +1,5 @@
 # Laravel From Scratch Blog Demo Project
+[![Laravel](https://github.com/johnazar/Laravel-From-Scratch-Blog-Project/actions/workflows/laravel.yml/badge.svg?branch=main)](https://github.com/johnazar/Laravel-From-Scratch-Blog-Project/actions/workflows/laravel.yml)
 
 get familiar with laravel here http://laravelfromscratch.com
 
